@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.7.8'
+    id 'io.spring.dependency-management' version '1.1.0'
+    id "io.freefair.lombok" version "6.6.1"
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation project(":gambler-mongo")
+
+    implementation "io.mongock:mongock:5.0.32"
+    implementation "io.mongock:mongock-springboot:5.0.32"
+    implementation "io.mongock:mongodb-springdata-v3-driver:5.0.32"
+
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
+
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.14.2'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+test {
+    useJUnitPlatform()
+}
