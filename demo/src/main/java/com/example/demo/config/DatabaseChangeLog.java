@@ -1,6 +1,6 @@
 package com.example.demo.config;
 
-import com.example.demo.model.User;
+import com.example.demo.model.UserMng;
 import com.example.demo.repository.UserRepository;
 import io.mongock.api.annotations.ChangeUnit;
 import io.mongock.api.annotations.Execution;
@@ -20,9 +20,9 @@ public class DatabaseChangeLog {
         userRepository.clear();
 
         // коллекция с пользователями, которые пойду в бд
-        List<User> users = List.of(
-                new User(1, "Oleg", "Ivanov", 56),
-                new User(2, "Kolya", "Tapok", 23));
+        List<UserMng> users = List.of(
+                new UserMng(1, "Oleg", "Ivanov", 56),
+                new UserMng(2, "Kolya", "Tapok", 23));
 
         userRepository.insertAll(users);
     }
