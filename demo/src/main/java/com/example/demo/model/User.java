@@ -1,11 +1,13 @@
 package com.example.demo.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 @Document("users")
 @Data
+@AllArgsConstructor
 public class User {
     public static final String ID_COLUMN_NAME = "id";
     public static final String NAME_COLUMN_NAME = "name";
