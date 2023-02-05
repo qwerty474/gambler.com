@@ -2,6 +2,8 @@ package com.example.demo.controller;
 
 import com.example.demo.model.UserMng;
 import com.example.demo.service.UserService;
+import com.example.error.exception.CabinetError;
+import com.example.error.exception.BackendException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,6 +25,6 @@ public class UserController {
             return user.get().toString();
         }
 
-        return "User not found";
+        throw new BackendException(CabinetError.NOT_FOUND);
     }
 }
