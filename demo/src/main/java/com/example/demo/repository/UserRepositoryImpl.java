@@ -7,6 +7,7 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -19,4 +20,20 @@ public class UserRepositoryImpl implements UserRepository {
         Query query = new Query(Criteria.where(User.ID_COLUMN_NAME).is(id));
         return Optional.ofNullable(mongoTemplate.findOne(query, User.class));
     }
+
+    @Override
+    public void clear() {
+        if (mongoTemplate.collectionExists(User.class)) {
+            mongoTemplate.dropCollection(User.class);
+        }
+
+        mongoTemplate.createCollection(User.class);
+    }
+
+    @Override
+    public void insertAll(List<User> users) {
+        mongoTemplate.insertAll(users);
+    }
+
+
 }
