@@ -1,0 +1,14 @@
+{
+  "errors": [
+    {
+      "code": "unknown",
+      "text": "Неизвестная ошибка",
+      "mapCode": "unk"
+    },
+    {
+      "code": "not.found",
+      "text": "Данные не найдены",
+      "mapCode": "fn"
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example;
 
 import io.mongock.runner.springboot.EnableMongock;
 import org.springframework.boot.SpringApplication;
