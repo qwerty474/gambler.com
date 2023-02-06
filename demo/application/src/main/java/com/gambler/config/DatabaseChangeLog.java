@@ -21,8 +21,8 @@ public class DatabaseChangeLog {
 
         // коллекция с пользователями, которые пойду в бд
         List<UserMng> users = List.of(
-                new UserMng(1, "Oleg", "Ivanov", 56),
-                new UserMng(2, "Kolya", "Tapok", 23));
+                new UserMng(1, "Oleg", "Ivanov", 56, "oleg_ivanov56@mailingo.com", "random678"),
+                new UserMng(2, "Kolya", "Tapok", 23, "kolya_tapok23@mailinator.com", "something978"));
 
         userRepository.insertAll(users);
     }
