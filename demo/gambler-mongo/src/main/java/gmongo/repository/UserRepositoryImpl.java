@@ -35,5 +35,14 @@ public class UserRepositoryImpl implements UserRepository {
         mongoTemplate.insertAll(users);
     }
 
+    @Override
+    public List<UserMng> getAll() {
+        return mongoTemplate.findAll(UserMng.class);
+    }
 
+    @Override
+    public Optional<UserMng> findByLogin(String login) {
+       Query query = new Query(Criteria.where(UserMng.LOGIN_COLUMN_NAME).is(login));
+       return Optional.ofNullable(mongoTemplate.findOne(query, UserMng.class));
+    }
 }

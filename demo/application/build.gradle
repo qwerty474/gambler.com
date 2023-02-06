@@ -10,10 +10,11 @@ repositories {
 }
 
 dependencies {
-    implementation project(":gambler-mongo")
+    implementation project(':gambler-mongo')
 
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
 
     implementation 'com.fasterxml.jackson.core:jackson-core:2.14.2'
 

@@ -21,4 +21,11 @@ public interface UserRepository {
      * Добавляет в бд всех пользователей
      */
     void insertAll(List<UserMng> users);
+
+    /**
+     * Возвращает данные всех пользователей
+     */
+    List<UserMng> getAll();
+
+    Optional<UserMng> findByLogin(String login);
 }
