@@ -7,7 +7,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 
-public class MyUser implements UserDetails {
+public class CustomUserDetails implements UserDetails {
 
     private Integer id;
     private String name;
@@ -16,7 +16,7 @@ public class MyUser implements UserDetails {
     private String login;
     private String password;
 
-    public MyUser(Integer id, String name, String surname, Integer age, String login, String password) {
+    public CustomUserDetails(Integer id, String name, String surname, Integer age, String login, String password) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -25,7 +25,7 @@ public class MyUser implements UserDetails {
         this.password = password;
     }
 
-    public MyUser(UserMng userMng) {
+    public CustomUserDetails(UserMng userMng) {
         this.id = userMng.getId();
         this.name = userMng.getName();
         this.surname = userMng.getSurname();

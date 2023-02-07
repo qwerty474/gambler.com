@@ -1,6 +1,6 @@
 package com.gambler.service;
 
-import com.gambler.entities.MyUser;
+import com.gambler.entities.CustomUserDetails;
 import gmongo.model.UserMng;
 import gmongo.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -23,7 +23,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Optional<MyUser> user = findByLogin(username);
+        Optional<CustomUserDetails> user = findByLogin(username);
         if (user.isEmpty()) {
             throw new UsernameNotFoundException("User is not found");
         }
@@ -31,11 +31,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Optional<MyUser> findByLogin(String login) {
+    public Optional<CustomUserDetails> findByLogin(String login) {
         Optional<UserMng> user = userRepository.findByLogin(login);
         if (user.isEmpty()) {
             return Optional.empty();
         }
-        return Optional.of(new MyUser(user.get()));
+        return Optional.of(new CustomUserDetails(user.get()));
     }
 }
