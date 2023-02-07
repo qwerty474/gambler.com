@@ -9,10 +9,29 @@ import java.util.Collection;
 
 public class MyUser implements UserDetails {
 
-    private UserMng user;
+    private Integer id;
+    private String name;
+    private String surname;
+    private Integer age;
+    private String login;
+    private String password;
 
-    public MyUser(UserMng user) {
-        this.user = user;
+    public MyUser(Integer id, String name, String surname, Integer age, String login, String password) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.age = age;
+        this.login = login;
+        this.password = password;
+    }
+
+    public MyUser(UserMng userMng) {
+        this.id = userMng.getId();
+        this.name = userMng.getName();
+        this.surname = userMng.getSurname();
+        this.age = userMng.getAge();
+        this.login = userMng.getLogin();
+        this.password = userMng.getPassword();
     }
 
     @Override
@@ -23,27 +42,27 @@ public class MyUser implements UserDetails {
 
     @Override
     public String getPassword() {
-        return user.getPassword();
+        return password;
     }
 
     @Override
     public String getUsername() {
-        return user.getUsername();
+        return login;
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override

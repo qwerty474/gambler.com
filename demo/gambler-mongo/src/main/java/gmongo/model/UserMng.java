@@ -14,7 +14,7 @@ public class UserMng {
     public static final String NAME_COLUMN_NAME = "name";
     public static final String SURNAME_COLUMN_NAME = "surname";
     public static final String AGE_COLUMN_NAME = "age";
-    public static final String USERNAME_COLUMN_NAME = "username";
+    public static final String LOGIN_COLUMN_NAME = "login";
     public static final String PASSWORD_COLUMN_NAME = "password";
 
     @Id
@@ -26,9 +26,8 @@ public class UserMng {
     private String surname;
     @Field(AGE_COLUMN_NAME)
     private Integer age;
-    @Field(USERNAME_COLUMN_NAME)
-    private String username;
+    @Field(LOGIN_COLUMN_NAME)
+    private String login;
     @Field(PASSWORD_COLUMN_NAME)
     private String password;
-
 }

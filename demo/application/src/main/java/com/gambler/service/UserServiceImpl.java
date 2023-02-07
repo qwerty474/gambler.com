@@ -1,9 +1,11 @@
 package com.gambler.service;
 
+import com.gambler.entities.MyUser;
 import gmongo.model.UserMng;
 import gmongo.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -12,11 +14,28 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
 
-    @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
     @Override
     public Optional<UserMng> findById(Integer id) {
         return userRepository.findById(id);
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        Optional<MyUser> user = findByLogin(username);
+        if (user.isEmpty()) {
+            throw new UsernameNotFoundException("User is not found");
+        }
+        return user.get();
+    }
+
+    @Override
+    public Optional<MyUser> findByLogin(String login) {
+        Optional<UserMng> user = userRepository.findByLogin(login);
+        if (user.isEmpty()) {
+            return Optional.empty();
+        }
+        return Optional.of(new MyUser(user.get()));
     }
 }

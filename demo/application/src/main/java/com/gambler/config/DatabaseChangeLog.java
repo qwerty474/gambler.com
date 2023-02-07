@@ -9,7 +9,7 @@ import lombok.RequiredArgsConstructor;
 
 import java.util.List;
 
-@ChangeUnit(id = "database-change-log", order = "1", author = "DatabaseChangeLog", runAlways = true)
+@ChangeUnit(id = "change-change", order = "1", author = "DatabaseChangeLog", runAlways = true)
 @RequiredArgsConstructor
 public class DatabaseChangeLog {
 
@@ -22,7 +22,8 @@ public class DatabaseChangeLog {
         // коллекция с пользователями, которые пойду в бд
         List<UserMng> users = List.of(
                 new UserMng(1, "Oleg", "Ivanov", 56, "oleg_ivanov56@mailingo.com", "random678"),
-                new UserMng(2, "Kolya", "Tapok", 23, "kolya_tapok23@mailinator.com", "something978"));
+                new UserMng(2, "Kolya", "Tapok", 23, "kolya_tapok23@mailinator.com", "something978"),
+                new UserMng(3, "Vitya", "Ivansky", 23, "viktor7687fd@mailinator.com", "check99978"));
 
         userRepository.insertAll(users);
     }
