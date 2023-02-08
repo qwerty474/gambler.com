@@ -6,7 +6,7 @@ import gmongo.product.model.ProductMng;
 import java.util.List;
 import java.util.Optional;
 
-public interface ProductRepository extends AbstractRepository<ProductMng, Integer> {
+public interface ProductMngRepository extends AbstractRepository<ProductMng, Integer> {
     /**
      * Ищет все продукты пользователя
      */

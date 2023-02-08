@@ -10,9 +10,9 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
-public class ProductRepositoryImpl extends AbstractRepositoryImpl<ProductMng, Integer> implements ProductRepository {
+public class ProductMngRepositoryImpl extends AbstractRepositoryImpl<ProductMng, Integer> implements ProductMngRepository {
 
-    public ProductRepositoryImpl(MongoTemplate mongoTemplate) {
+    public ProductMngRepositoryImpl(MongoTemplate mongoTemplate) {
         super(mongoTemplate);
     }
 

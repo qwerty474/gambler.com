@@ -1,12 +1,14 @@
 package com.gambler.service.product.service;
 
-import com.gambler.service.product.model.Product;
+import com.gambler.service.product.repository.ProductRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
+@Service
+@RequiredArgsConstructor
+public class ProductService {
 
-public interface ProductService {
-    List<Product> findByOwnerId(Integer ownerId);
+    private final ProductRepository productRepository;
 
-    Optional<Product> findByProductIdAndOwnerId(Integer productId, Integer ownerId);
+
 }
