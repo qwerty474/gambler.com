@@ -1,16 +1,19 @@
-package gmongo.repository;
-
-
-import gmongo.model.UserMng;
+package gmongo;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface UserRepository {
+/**
+ * Общий интерфейс для классов Repository
+ *
+ * @param <MngType> Тип сущности в монге
+ * @param <Id>      Тип id сущности
+ */
+public interface AbstractRepository<MngType, Id> {
     /**
      * Ищет пользователя в бд, по его id
      */
-    Optional<UserMng> findById(Integer id);
+    Optional<MngType> findById(Id id);
 
     /**
      * Очищает коллекцию в бд, если ее нет, то создаст
@@ -20,12 +23,5 @@ public interface UserRepository {
     /**
      * Добавляет в бд всех пользователей
      */
-    void insertAll(List<UserMng> users);
-
-    /**
-     * Возвращает данные всех пользователей
-     */
-    List<UserMng> getAll();
-
-    Optional<UserMng> findByLogin(String login);
+    void insertAll(List<MngType> objects);
 }
