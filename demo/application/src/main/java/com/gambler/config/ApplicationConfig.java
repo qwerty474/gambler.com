@@ -1,9 +1,9 @@
 package com.gambler.config;
 
-import gmongo.product.repository.ProductRepository;
-import gmongo.product.repository.ProductRepositoryImpl;
-import gmongo.user.repository.UserRepository;
-import gmongo.user.repository.UserRepositoryImpl;
+import gmongo.product.repository.ProductMngRepository;
+import gmongo.product.repository.ProductMngRepositoryImpl;
+import gmongo.user.repository.UserMngRepository;
+import gmongo.user.repository.UserMngRepositoryImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -12,12 +12,12 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 public class ApplicationConfig {
 
     @Bean
-    public UserRepository userRepository(MongoTemplate mongoTemplate) {
-        return new UserRepositoryImpl(mongoTemplate);
+    public UserMngRepository userRepository(MongoTemplate mongoTemplate) {
+        return new UserMngRepositoryImpl(mongoTemplate);
     }
 
     @Bean
-    public ProductRepository productRepository(MongoTemplate mongoTemplate) {
-        return new ProductRepositoryImpl(mongoTemplate);
+    public ProductMngRepository productRepository(MongoTemplate mongoTemplate) {
+        return new ProductMngRepositoryImpl(mongoTemplate);
     }
 }

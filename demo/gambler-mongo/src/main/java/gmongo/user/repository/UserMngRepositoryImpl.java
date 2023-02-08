@@ -8,9 +8,9 @@ import org.springframework.data.mongodb.core.query.Query;
 
 import java.util.Optional;
 
-public class UserRepositoryImpl extends AbstractRepositoryImpl<UserMng, Integer> implements UserRepository {
+public class UserMngRepositoryImpl extends AbstractRepositoryImpl<UserMng, Integer> implements UserMngRepository {
 
-    public UserRepositoryImpl(MongoTemplate mongoTemplate) {
+    public UserMngRepositoryImpl(MongoTemplate mongoTemplate) {
         super(mongoTemplate);
     }
 

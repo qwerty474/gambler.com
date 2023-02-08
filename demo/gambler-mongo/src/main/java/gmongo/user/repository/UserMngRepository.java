@@ -6,7 +6,7 @@ import gmongo.user.model.UserMng;
 
 import java.util.Optional;
 
-public interface UserRepository extends AbstractRepository<UserMng, Integer> {
+public interface UserMngRepository extends AbstractRepository<UserMng, Integer> {
 
     /**
      * Ищет пользователя по логину

@@ -1,9 +1,9 @@
 package com.gambler.mongo;
 
 import gmongo.product.model.ProductMng;
-import gmongo.product.repository.ProductRepository;
+import gmongo.product.repository.ProductMngRepository;
 import gmongo.user.model.UserMng;
-import gmongo.user.repository.UserRepository;
+import gmongo.user.repository.UserMngRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -15,8 +15,8 @@ import java.util.List;
 @RequiredArgsConstructor
 public class FillMongo implements ApplicationRunner {
 
-    private final UserRepository userRepository;
-    private final ProductRepository productRepository;
+    private final UserMngRepository userMngRepository;
+    private final ProductMngRepository productMngRepository;
 
 
     @Override
@@ -26,15 +26,15 @@ public class FillMongo implements ApplicationRunner {
     }
 
     private void fillUsers() {
-        userRepository.clear();
+        userMngRepository.clear();
 
         List<UserMng> users = List.of(
                 new UserMng()
                         .setId(1)
                         .setName("Oleg")
                         .setLastname("Ivanov")
-                        .setLogin("oleg_ivanov56@mailingo.com")
-                        .setPassword("random678"),
+                        .setLogin("test")
+                        .setPassword("test"),
                 new UserMng()
                         .setId(2)
                         .setName("Kolya")
@@ -48,11 +48,11 @@ public class FillMongo implements ApplicationRunner {
                         .setLogin("viktor7687fd@mailinator.com")
                         .setPassword("check99978"));
 
-        userRepository.insertAll(users);
+        userMngRepository.insertAll(users);
     }
 
     private void fillProducts() {
-        productRepository.clear();
+        productMngRepository.clear();
 
         List<ProductMng> products = List.of(
                 new ProductMng()
@@ -64,6 +64,6 @@ public class FillMongo implements ApplicationRunner {
                         .setName("Ноутбук")
                         .setOwnerId(1));
 
-        productRepository.insertAll(products);
+        productMngRepository.insertAll(products);
     }
 }
