@@ -1,8 +1,8 @@
-package com.gambler.service;
+package com.gambler.service.user.service;
 
-import com.gambler.entities.CustomUserDetails;
-import gmongo.model.UserMng;
-import gmongo.repository.UserRepository;
+import com.gambler.service.user.converter.UserConverter;
+import com.gambler.service.user.model.User;
+import gmongo.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -15,15 +15,16 @@ import java.util.Optional;
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
+    private final UserConverter userConverter;
 
     @Override
-    public Optional<UserMng> findById(Integer id) {
-        return userRepository.findById(id);
+    public Optional<User> findById(Integer id) {
+        return userConverter.convert(userRepository.findById(id));
     }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Optional<CustomUserDetails> user = findByLogin(username);
+        Optional<User> user = findByLogin(username);
         if (user.isEmpty()) {
             throw new UsernameNotFoundException("User is not found");
         }
@@ -31,11 +32,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Optional<CustomUserDetails> findByLogin(String login) {
-        Optional<UserMng> user = userRepository.findByLogin(login);
-        if (user.isEmpty()) {
-            return Optional.empty();
-        }
-        return Optional.of(new CustomUserDetails(user.get()));
+    public Optional<User> findByLogin(String login) {
+        return userConverter.convert(userRepository.findByLogin(login));
     }
 }
