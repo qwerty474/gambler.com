@@ -1,5 +1,6 @@
 package com.gambler.service.user.model;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
@@ -11,6 +12,7 @@ import java.util.Collection;
 @Getter
 @Setter
 @Accessors(chain = true)
+@EqualsAndHashCode
 public class User implements UserDetails {
     private Integer id;
     private String name;
