@@ -44,12 +44,15 @@ public class UserServiceTest {
     @Test
     void loadUserByUsername_success() {
         when(userRepository.findByLogin(eq(USERNAME))).thenReturn(Optional.of(
-                new User()
-                        .setId(USER_ID)
-                        .setLogin(USERNAME)
-                        .setName("name")
-                        .setLastname("lastname")
-                        .setPassword("password")));
+                        new User()
+                                .setId(USER_ID)
+                                .setLogin(USERNAME)
+                                .setName("name")
+                                .setLastname("lastname")
+                                .setPassword("password")
+                                .setRole("role"))
+
+        );
 
         UserDetails actual = userService.loadUserByUsername(USERNAME);
 
@@ -71,7 +74,8 @@ public class UserServiceTest {
                         .setLogin(USERNAME)
                         .setName("name")
                         .setLastname("lastname")
-                        .setPassword("password")));
+                        .setPassword("password")
+                        .setRole("role")));
         when(productRepository.findByOwnerId(eq(USER_ID))).thenReturn(List.of(
                 new Product()
                         .setId(1)

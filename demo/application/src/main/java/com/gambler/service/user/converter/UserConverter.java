@@ -20,6 +20,7 @@ public class UserConverter {
                 .setName(userMng.getName())
                 .setLastname(userMng.getLastname())
                 .setLogin(userMng.getLogin())
-                .setPassword(userMng.getPassword()));
+                .setPassword(userMng.getPassword())
+                .setRole(userMng.getRole()));
     }
 }

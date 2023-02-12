@@ -17,6 +17,7 @@ public class UserMng {
     public static final String LASTNAME_COLUMN_NAME = "lastname";
     public static final String LOGIN_COLUMN_NAME = "login";
     public static final String PASSWORD_COLUMN_NAME = "password";
+    public static final String ROLE_COLUMN_NAME = "role";
 
     @Id
     @Field(ID_COLUMN_NAME)
@@ -29,4 +30,6 @@ public class UserMng {
     private String login;
     @Field(PASSWORD_COLUMN_NAME)
     private String password;
+    @Field(ROLE_COLUMN_NAME)
+    private String role;
 }

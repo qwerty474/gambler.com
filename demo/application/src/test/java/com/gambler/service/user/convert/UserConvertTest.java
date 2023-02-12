@@ -26,14 +26,16 @@ public class UserConvertTest {
                 .setName("name")
                 .setLastname("lastname")
                 .setLogin("login")
-                .setPassword("password");
+                .setPassword("password")
+                .setRole("role");
 
         Optional<User> expected = Optional.of(new User()
                 .setId(1)
                 .setName("name")
                 .setLastname("lastname")
                 .setLogin("login")
-                .setPassword("password"));
+                .setPassword("password")
+                .setRole("role"));
 
         Optional<User> actual = userConverter.convert(Optional.of(userMng));
 
