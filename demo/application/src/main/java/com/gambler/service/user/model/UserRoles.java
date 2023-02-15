@@ -8,9 +8,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import java.util.ArrayList;
 import java.util.List;
 
-@Accessors(chain = true)
-@EqualsAndHashCode
-public class UserRoles extends User implements GrantedAuthority {
+public class UserRoles implements GrantedAuthority {
 
     @Override
     public String getAuthority() {
