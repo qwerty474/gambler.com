@@ -8,6 +8,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.List;
 
 @Getter
 @Setter
@@ -19,10 +20,12 @@ public class User implements UserDetails {
     private String lastname;
     private String login;
     private String password;
+    private UserRoles userRoles;
+    private List<String> roles;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return userRoles.getGrantedAuthorities(roles);
     }
 
     @Override

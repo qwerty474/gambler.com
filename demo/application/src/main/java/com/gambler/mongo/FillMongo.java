@@ -38,19 +38,22 @@ public class FillMongo implements ApplicationRunner {
                         .setName("Oleg")
                         .setLastname("Ivanov")
                         .setLogin("test")
-                        .setPassword(passwordEncoder.encode("test")),
+                        .setPassword(passwordEncoder.encode("test"))
+                        .setRole("ROLE_SELLER"),
                 new UserMng()
                         .setId(2)
                         .setName("Kolya")
                         .setLastname("Tapok")
                         .setLogin("kolya_tapok23@mailinator.com")
-                        .setPassword(passwordEncoder.encode("something978")),
+                        .setPassword(passwordEncoder.encode("something978"))
+                        .setRole("ROLE_BUYER"),
                 new UserMng()
                         .setId(3)
                         .setName("Vitya")
                         .setLastname("Ivansky")
                         .setLogin("viktor7687fd@mailinator.com")
-                        .setPassword(passwordEncoder.encode("check99978")));
+                        .setPassword(passwordEncoder.encode("check99978"))
+                        .setRole("ROLE_ADMIN"));
 
         userMngRepository.insertAll(users);
     }

@@ -8,6 +8,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.Collections;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -26,14 +27,16 @@ public class UserConvertTest {
                 .setName("name")
                 .setLastname("lastname")
                 .setLogin("login")
-                .setPassword("password");
+                .setPassword("password")
+                .setRole("role");
 
         Optional<User> expected = Optional.of(new User()
                 .setId(1)
                 .setName("name")
                 .setLastname("lastname")
                 .setLogin("login")
-                .setPassword("password"));
+                .setPassword("password")
+                .setRoles(Collections.singletonList("role")));
 
         Optional<User> actual = userConverter.convert(Optional.of(userMng));
 

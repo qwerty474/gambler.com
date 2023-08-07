@@ -14,6 +14,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -44,12 +45,15 @@ public class UserServiceTest {
     @Test
     void loadUserByUsername_success() {
         when(userRepository.findByLogin(eq(USERNAME))).thenReturn(Optional.of(
-                new User()
-                        .setId(USER_ID)
-                        .setLogin(USERNAME)
-                        .setName("name")
-                        .setLastname("lastname")
-                        .setPassword("password")));
+                        new User()
+                                .setId(USER_ID)
+                                .setLogin(USERNAME)
+                                .setName("name")
+                                .setLastname("lastname")
+                                .setPassword("password")
+                                .setRoles(Collections.singletonList("role")))
+
+        );
 
         UserDetails actual = userService.loadUserByUsername(USERNAME);
 
@@ -71,7 +75,8 @@ public class UserServiceTest {
                         .setLogin(USERNAME)
                         .setName("name")
                         .setLastname("lastname")
-                        .setPassword("password")));
+                        .setPassword("password")
+                        .setRoles(Collections.singletonList("role"))));
         when(productRepository.findByOwnerId(eq(USER_ID))).thenReturn(List.of(
                 new Product()
                         .setId(1)
